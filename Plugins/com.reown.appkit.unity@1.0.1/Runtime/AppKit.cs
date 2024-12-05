@@ -9,35 +9,29 @@ namespace Reown.AppKit.Unity
 {
     public abstract class AppKit : MonoBehaviour
     {
-        public const string Version = "unity-appkit-v1.0.0"; // TODO: update this from CI
+        public const  string Version = "unity-appkit-v1.0.0"; // TODO: update this from CI
         public static AppKit Instance { get; protected set; }
 
-        public static ModalController ModalController { get; protected set; }
-        public static AccountController AccountController { get; protected set; }
-        public static ConnectorController ConnectorController { get; protected set; }
-        public static ApiController ApiController { get; protected set; }
+        public static ModalController         ModalController         { get; protected set; }
+        public static AccountController       AccountController       { get; protected set; }
+        public static ConnectorController     ConnectorController     { get; protected set; }
+        public static ApiController           ApiController           { get; protected set; }
         public static BlockchainApiController BlockchainApiController { get; protected set; }
-        public static NotificationController NotificationController { get; protected set; }
-        public static NetworkController NetworkController { get; protected set; }
-        public static EventsController EventsController { get; protected set; }
+        public static NotificationController  NotificationController  { get; protected set; }
+        public static NetworkController       NetworkController       { get; protected set; }
+        public static EventsController        EventsController        { get; protected set; }
 
         public static EvmService Evm { get; protected set; }
 
         public static AppKitConfig Config { get; private set; }
-        
+
         public SignClientUnity SignClient { get; protected set; }
-        
+
         public static bool IsInitialized { get; private set; }
 
-        public static bool IsAccountConnected
-        {
-            get => ConnectorController.IsAccountConnected;
-        }
+        public static bool IsAccountConnected { get => ConnectorController.IsAccountConnected; }
 
-        public static bool IsModalOpen
-        {
-            get => ModalController.IsOpen;
-        }
+        public static bool IsModalOpen { get => ModalController.IsOpen; }
 
         public static event EventHandler<InitializeEventArgs> Initialized;
 
@@ -59,16 +53,13 @@ namespace Reown.AppKit.Unity
             remove => ConnectorController.AccountChanged -= value;
         }
 
-        public static event EventHandler<NetworkController.ChainChangedEventArgs> ChainChanged
-        {
-            add => NetworkController.ChainChanged += value;
-            remove => NetworkController.ChainChanged -= value;
-        }
+        public static event EventHandler<NetworkController.ChainChangedEventArgs> ChainChanged { add => NetworkController.ChainChanged += value; remove => NetworkController.ChainChanged -= value; }
 
         public static async Task InitializeAsync(AppKitConfig config)
         {
             if (Instance == null)
                 throw new Exception("Instance not set");
+
             if (IsInitialized)
                 throw new Exception("Already initialized"); // TODO: use custom ex type
 
@@ -86,7 +77,11 @@ namespace Reown.AppKit.Unity
                 throw new Exception("AppKit not initialized"); // TODO: use custom ex type
 
             if (IsModalOpen)
+            {
+                CloseModal();
+
                 throw new Exception("AppKit already open"); // TODO: use custom ex type
+            }
 
             Instance.OpenModalCore(viewType);
         }
@@ -95,14 +90,11 @@ namespace Reown.AppKit.Unity
         {
             if (!IsModalOpen)
                 return;
-
+            Debug.Log("[AppKit] Closing modal");
             Instance.CloseModalCore();
         }
 
-        public static Task<Account> GetAccountAsync()
-        {
-            return ConnectorController.GetAccountAsync();
-        }
+        public static Task<Account> GetAccountAsync() { return ConnectorController.GetAccountAsync(); }
 
         public static Task DisconnectAsync()
         {
@@ -126,9 +118,7 @@ namespace Reown.AppKit.Unity
         public class InitializeEventArgs : EventArgs
         {
             [Preserve]
-            public InitializeEventArgs()
-            {
-            }
+            public InitializeEventArgs() { }
         }
     }
 }
