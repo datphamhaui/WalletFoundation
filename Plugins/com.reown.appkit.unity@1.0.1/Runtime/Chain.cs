@@ -9,21 +9,18 @@ namespace Reown.AppKit.Unity
         public virtual string Name { get; }
 
         // https://github.com/wevm/viem/blob/main/src/chains/index.ts
-        public virtual string ViemName { get; }
-        public virtual Currency NativeCurrency { get; }
-        public virtual BlockExplorer BlockExplorer { get; }
-        public virtual string RpcUrl { get; }
-        public virtual bool IsTestnet { get; }
-        public virtual string ImageUrl { get; }
+        public virtual string        ViemName       { get; }
+        public virtual Currency      NativeCurrency { get; }
+        public virtual BlockExplorer BlockExplorer  { get; }
+        public virtual string        RpcUrl         { get; }
+        public virtual bool          IsTestnet      { get; }
+        public virtual string        ImageUrl       { get; }
 
         // --- CAIP-2
         public virtual string ChainNamespace { get; }
         public virtual string ChainReference { get; }
 
-        public virtual string ChainId
-        {
-            get => $"{ChainNamespace}:{ChainReference}";
-        }
+        public virtual string ChainId { get => $"{ChainNamespace}:{ChainReference}"; }
         // ---
 
         public Chain(
@@ -39,13 +36,13 @@ namespace Reown.AppKit.Unity
         {
             ChainNamespace = chainNamespace;
             ChainReference = chainReference;
-            Name = name;
+            Name           = name;
             NativeCurrency = nativeCurrency;
-            BlockExplorer = blockExplorer;
-            RpcUrl = rpcUrl;
-            IsTestnet = isTestnet;
-            ImageUrl = imageUrl;
-            ViemName = viemName;
+            BlockExplorer  = blockExplorer;
+            RpcUrl         = rpcUrl;
+            IsTestnet      = isTestnet;
+            ImageUrl       = imageUrl;
+            ViemName       = viemName;
         }
     }
 
@@ -54,19 +51,16 @@ namespace Reown.AppKit.Unity
     {
         public readonly string name;
         public readonly string symbol;
-        public readonly int decimals;
+        public readonly int    decimals;
 
         public Currency(string name, string symbol, int decimals)
         {
-            this.name = name;
-            this.symbol = symbol;
+            this.name     = name;
+            this.symbol   = symbol;
             this.decimals = decimals;
         }
 
-        public static implicit operator Reown.Sign.Nethereum.Model.Currency(Currency currency)
-        {
-            return new Reown.Sign.Nethereum.Model.Currency(currency.name, currency.symbol, currency.decimals);
-        }
+        public static implicit operator Reown.Sign.Nethereum.Model.Currency(Currency currency) { return new Reown.Sign.Nethereum.Model.Currency(currency.name, currency.symbol, currency.decimals); }
     }
 
     [Serializable]
@@ -78,7 +72,7 @@ namespace Reown.AppKit.Unity
         public BlockExplorer(string name, string url)
         {
             this.name = name;
-            this.url = url;
+            this.url  = url;
         }
     }
 
@@ -88,26 +82,26 @@ namespace Reown.AppKit.Unity
 
         public static class Namespaces
         {
-            public const string Evm = "eip155";
+            public const string Evm      = "eip155";
             public const string Algorand = "algorand";
-            public const string Solana = "sol";
+            public const string Solana   = "sol";
         }
 
         public static class References
         {
-            public const string Ethereum = "1";
+            public const string Ethereum       = "1";
             public const string EthereumGoerli = "5";
-            public const string Optimism = "10";
-            public const string Ronin = "2020";
-            public const string RoninSaigon = "2021";
-            public const string Base = "8453";
-            public const string BaseGoerli = "84531";
-            public const string Arbitrum = "42161";
-            public const string Celo = "42220";
-            public const string CeloAlfajores = "44787";
-            public const string Solana = "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp";
-            public const string Polygon = "137";
-            public const string Avalanche = "43114";
+            public const string Optimism       = "10";
+            public const string Ronin          = "2020";
+            public const string RoninSaigon    = "2021";
+            public const string Base           = "8453";
+            public const string BaseGoerli     = "84531";
+            public const string Arbitrum       = "42161";
+            public const string Celo           = "42220";
+            public const string CeloAlfajores  = "44787";
+            public const string Solana         = "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp";
+            public const string Polygon        = "137";
+            public const string Avalanche      = "43114";
         }
 
         // https://specs.walletconnect.com/2.0/specs/meta-clients/web3modal/api#known-static-asset-ids
@@ -299,6 +293,30 @@ namespace Reown.AppKit.Unity
                 "solana"
             );
 
+            public static readonly Chain BnbSmartChain = new(
+                Namespaces.Evm,
+                "56",
+                "BNB Smart Chain",
+                new Currency("Binance Coin", "BNB", 18),
+                new BlockExplorer("BscScan", "https://bscscan.com"),
+                "https://bsc-dataseed.binance.org/",
+                false,
+                $"https://cryptologos.cc/logos/binance-coin-bnb-logo.png",
+                "bsc"
+            );
+
+            public static readonly Chain BnbSmartChainTestnet = new(
+                Namespaces.Evm,
+                "97",
+                "BNB Smart Chain Testnet",
+                new Currency("Binance Coin", "BNB", 18),
+                new BlockExplorer("BscScan Testnet", "https://testnet.bscscan.com"),
+                "https://data-seed-prebsc-1-s1.binance.org:8545/",
+                true,
+                $"https://cryptologos.cc/logos/binance-coin-bnb-logo.png",
+                "bscTestnet"
+            );
+
             public static readonly IReadOnlyCollection<Chain> All = new HashSet<Chain>
             {
                 Ethereum,
@@ -313,7 +331,9 @@ namespace Reown.AppKit.Unity
                 BaseGoerli,
                 Polygon,
                 Avalanche,
-                Solana
+                Solana,
+                BnbSmartChain,
+                BnbSmartChainTestnet
             };
         }
     }

@@ -9,8 +9,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Inter-SemiBold Atlas Material
   m_Shader: {fileID: 19011, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -19,7 +17,6 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -34,9 +31,9 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
-    - _ScaleRatioA: 1
+    - _ScaleRatioA: 0.9
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioC: 0.73125
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -71,26 +68,7 @@ MonoBehaviour:
   m_Version: 1.1.0
   m_Material: {fileID: -8602449214743138571}
   m_SourceFontFileGUID: a6508bdacfb9447a2a2067b8008f3b5a
-  m_fontAssetCreationEditorSettings:
-    sourceFontFileGUID: a6508bdacfb9447a2a2067b8008f3b5a
-    faceIndex: 0
-    pointSizeSamplingMode: 0
-    pointSize: 90
-    padding: 9
-    paddingMode: 2
-    packingMode: 0
-    atlasWidth: 1024
-    atlasHeight: 1024
-    characterSetSelectionMode: 7
-    characterSequence: 
-    referencedFontAssetGUID: 
-    referencedTextAssetGUID: 
-    fontStyle: 0
-    fontStyleModifier: 0
-    renderMode: 4165
-    includeFontFeatures: 0
   m_SourceFontFile: {fileID: 12800000, guid: a6508bdacfb9447a2a2067b8008f3b5a, type: 3}
-  m_SourceFontFilePath: 
   m_AtlasPopulationMode: 1
   InternalDynamicOS: 0
   m_FaceInfo:
@@ -115,6 +93,27 @@ MonoBehaviour:
     m_StrikethroughOffset: 19.6
     m_StrikethroughThickness: 7.602539
     m_TabWidth: 23
+  m_FontWeightTable:
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
   m_GlyphTable:
   - m_Index: 161
     m_Metrics:
@@ -1146,33 +1145,25 @@ MonoBehaviour:
     m_Width: 957
     m_Height: 108
   m_FontFeatureTable:
-    m_MultipleSubstitutionRecords: []
-    m_LigatureSubstitutionRecords: []
     m_GlyphPairAdjustmentRecords: []
-    m_MarkToBaseAdjustmentRecords: []
-    m_MarkToMarkAdjustmentRecords: []
   m_FallbackFontAssetTable: []
-  m_FontWeightTable:
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
+  m_fontAssetCreationEditorSettings:
+    sourceFontFileGUID: a6508bdacfb9447a2a2067b8008f3b5a
+    faceIndex: 0
+    pointSizeSamplingMode: 0
+    pointSize: 90
+    padding: 9
+    packingMode: 0
+    atlasWidth: 1024
+    atlasHeight: 1024
+    characterSetSelectionMode: 7
+    characterSequence: 
+    referencedFontAssetGUID: 
+    referencedTextAssetGUID: 
+    fontStyle: 0
+    fontStyleModifier: 0
+    renderMode: 4165
+    includeFontFeatures: 0
   m_RegularStyleWeight: 0
   m_RegularStyleSpacing: 0
   m_BoldStyleWeight: 0.75
@@ -1201,8 +1192,7 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 1
   m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
+  m_IgnoreMasterTextureLimit: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0

@@ -24,7 +24,9 @@ namespace Reown.AppKit.Unity
             ChainConstants.Chains.Optimism,
             ChainConstants.Chains.Base,
             ChainConstants.Chains.Celo,
-            ChainConstants.Chains.Ronin
+            ChainConstants.Chains.Ronin,
+            ChainConstants.Chains.BnbSmartChain,
+            ChainConstants.Chains.BnbSmartChainTestnet,
         };
 
         public readonly Metadata Metadata;
